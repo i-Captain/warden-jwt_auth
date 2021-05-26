@@ -15,7 +15,7 @@ module Warden
       # @return [String] JWT
       def call(payload)
         payload_to_encode = merge_with_default_claims(payload)
-        JWT.encode(payload_to_encode, secret, algorithm)
+        JWT.encode(payload_to_encode, secret, algorithm, { typ: 'JWT' })
       end
 
       private
